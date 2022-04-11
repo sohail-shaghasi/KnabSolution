@@ -14,32 +14,7 @@ namespace Knab.Exchange.Api.Configurators
     /// </summary>
     internal static class ServicesConfigurator
     {
-        /// <summary>
-        /// Extension method for configuring the services in the <see cref="IHostBuilder" />.
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
-        public static IHostBuilder ConfigureServices(this IHostBuilder builder) =>
-            builder.ConfigureServices(ConfigureServices);
-
-        /// <summary>
-        /// Helper method for adding services to the the <see cref="HostBuilderContext" />.
-        /// </summary>
-        /// <param name="hostBuilderContext"></param>
-        /// <param name="serviceCollection"></param>
-        private static void ConfigureServices(HostBuilderContext hostBuilderContext,
-            IServiceCollection serviceCollection)
-        {
-            serviceCollection.AddOptions();
-
-            var section = hostBuilderContext
-                .Configuration
-                    .GetSection("ServiceConfigurations");
-
-            serviceCollection.Configure<ServiceConfigurations>(section);
-        }
-
-
+       
         /// <summary>
         /// Extension method for configuring the services in the <see cref="IWebHostBuilder" />.
         /// </summary>
@@ -59,13 +34,25 @@ namespace Knab.Exchange.Api.Configurators
             serviceCollection.AddOptions();
 
             var serviceConfigurations = hostBuilderContext.Configuration.GetSection("ServiceConfigurations");
+            var appConfigs = hostBuilderContext.Configuration.GetSection("ServiceConfigurations").Get<ServiceConfigurations>();
 
             serviceCollection.Configure<ServiceConfigurations>(serviceConfigurations);
+            serviceCollection.AddControllers();
+            serviceCollection.AddEndpointsApiExplorer()
+                .AddSwagger(hostBuilderContext);
 
             // NOTE: In order to separate dependency injection concerns, each api Client will have its own extension method.
             // This will help a new 3rd party exchange's api is introduced and ready to consume.
-            CoinMarketCapInjections.InjectDependencies(serviceCollection, hostBuilderContext);
-            ExchangeRatesInjections.InjectDependencies(serviceCollection, hostBuilderContext);
+            
+            if (appConfigs.CoinmarketcapApi.Enabled)
+            {
+                CoinMarketCapInjections.InjectDependencies(serviceCollection, hostBuilderContext, appConfigs);
+            }
+            else if (appConfigs.Exchangeratesapi.Enabled)
+            {
+                ExchangeRatesInjections.InjectDependencies(serviceCollection, hostBuilderContext, appConfigs);
+            }
+
         }
     }
 

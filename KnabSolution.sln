@@ -5,13 +5,12 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Api", "Knab.Exchange.Api\Knab.Exchange.Api.csproj", "{F53AC6CB-A62C-4E3A-871A-39D66CEAABE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.Exchange.CoinMarketCap.ApiClient", "Knab.Exchange.CoinMarketCap.ApiClient\Knab.Exchange.CoinMarketCap.ApiClient.csproj", "{CEA095D2-27BC-476E-9B20-BE5EAB84032B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.CoinMarketCap.ApiClient", "Knab.Exchange.CoinMarketCap.ApiClient\Knab.Exchange.CoinMarketCap.ApiClient.csproj", "{CEA095D2-27BC-476E-9B20-BE5EAB84032B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.Exchange.Exchangerates.ApiClient", "Knab.Exchange.Exchangerates.ApiClient\Knab.Exchange.Exchangerates.ApiClient.csproj", "{04F51902-4E86-4344-8863-E2E5E9A9B43D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Exchangerates.ApiClient", "Knab.Exchange.Exchangerates.ApiClient\Knab.Exchange.Exchangerates.ApiClient.csproj", "{04F51902-4E86-4344-8863-E2E5E9A9B43D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.Exchange.Core", "Knab.Exchange.Core\Knab.Exchange.Core.csproj", "{89A7926E-455D-4340-BA5F-97EB919C0FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Core", "Knab.Exchange.Core\Knab.Exchange.Core.csproj", "{44C80867-297A-4632-A43A-08D01314351E}"
 EndProject
-
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,14 +25,14 @@ Global
 		{CEA095D2-27BC-476E-9B20-BE5EAB84032B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEA095D2-27BC-476E-9B20-BE5EAB84032B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEA095D2-27BC-476E-9B20-BE5EAB84032B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89A7926E-455D-4340-BA5F-97EB919C0FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89A7926E-455D-4340-BA5F-97EB919C0FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89A7926E-455D-4340-BA5F-97EB919C0FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89A7926E-455D-4340-BA5F-97EB919C0FF3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{04F51902-4E86-4344-8863-E2E5E9A9B43D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04F51902-4E86-4344-8863-E2E5E9A9B43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F51902-4E86-4344-8863-E2E5E9A9B43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04F51902-4E86-4344-8863-E2E5E9A9B43D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44C80867-297A-4632-A43A-08D01314351E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44C80867-297A-4632-A43A-08D01314351E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44C80867-297A-4632-A43A-08D01314351E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44C80867-297A-4632-A43A-08D01314351E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

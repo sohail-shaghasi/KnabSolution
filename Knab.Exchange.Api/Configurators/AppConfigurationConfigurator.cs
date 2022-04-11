@@ -6,23 +6,7 @@
     /// </summary>
     internal static class AppConfigurationConfigurator
     {
-        /// <summary>
-        /// Extension method for setting up app configuration for an instance of <see cref="IHostBuilder" />.
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
-        public static IHostBuilder ConfigureAppConfiguration(this IHostBuilder builder) =>
-            builder.ConfigureAppConfiguration(ConfigureAppConfiguration);
-
-        /// <summary>
-        /// Sets up app configuration for the <see cref="HostBuilderContext" />.
-        /// </summary>
-        /// <param name="hostBuilderContext"></param>
-        /// <param name="configurationBuilder"></param>
-        private static void ConfigureAppConfiguration(HostBuilderContext hostBuilderContext,
-            IConfigurationBuilder configurationBuilder) =>
-            ConfigureAppConfiguration(configurationBuilder);
-
+     
         /// <summary>
         /// Extension method for setting up app configuration for an instance of <see cref="IWebHostBuilder" />.
         /// </summary>
@@ -55,9 +39,21 @@
             var runtimeEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             if (!string.Equals(runtimeEnvironment, "LocalDevelopment"))
             {
-                configurationBuilder.AddJsonFile(
-                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"appsettings.{runtimeEnvironment}.json"),
+                if (runtimeEnvironment == null)
+                {
+                    configurationBuilder
+                .AddEnvironmentVariables()
+                .AddJsonFile(
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.json"),
                     optional: false);
+                }
+                else
+                {
+
+                    configurationBuilder.AddJsonFile(
+                        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"appsettings.{runtimeEnvironment}.json"),
+                        optional: false);
+                }
             }
         }
     }

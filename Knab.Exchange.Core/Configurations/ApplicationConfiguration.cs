@@ -17,28 +17,31 @@ namespace O.WP.CMC.UmmAdapterService.Core.Configurations
     {
         public string Name { get; set; }
         public string RepositoryUrl { get; set; }
+        public string Version { get; set; }
+        public string Description { get; set; }
+        public string Maintainer { get; set; }
+
     }
 
     public class CoinmarketcapApi
     {
+        public bool Enabled { get; set; }
         public string BaseUrl { get; set; }
         public string Version { get; set; }
         public string QuotesEndpoint { get; set; }
-        public string MapEndpoint { get; set; }
         public string APIKeyName { get; set; }
         public string APIKeyValue { get; set; }
-        public List<string> DefaultTargetedCurrencies { get; set; }
-        public List<string> SupportedTargetedCurrencies { get; set; }
+        public List<string> TargetCurrencies { get; set; }
     }
 
     public class Exchangeratesapi
     {
+        public bool Enabled { get; set; }
         public string ServiceBaseUrl { get; set; }
         public string ExchangeRateEndpoint { get; set; }
-        public List<string> SupportedCurrencies { get; set; }
         public List<string> DefaultTargetedCurrencies { get; set; }
-        public bool EnableCaching { get; set; }
-        public int ExpiredAfterInMinutes { get; set; }
+        public string Version { get; set; }
+        public string AccessKey { get; set; }
     }
 
     public class Console

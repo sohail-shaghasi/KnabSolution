@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Knab.Exchange.CoinMarketCap.ApiClient.Services;
+using Knab.Exchange.Core.Interfaces;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using O.WP.CMC.UmmAdapterService.Core.Configurations;
 using Polly;
 using Polly.Extensions.Http;
 
@@ -8,29 +11,32 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Injections
 {
     public static class CoinMarketCapInjections
     {
-        public static void InjectDependencies(this IServiceCollection services, WebHostBuilderContext hostContext)
+        public static void InjectDependencies(this IServiceCollection services, WebHostBuilderContext hostContext, ServiceConfigurations serviceConfigurations)
         {
             // Register CointMarketcap's dependencies
-            _ = services.AddHttpClient("CoinmarketcapApi", c =>
+            services.AddHttpClient("CoinmarketcapApi", httpclient =>
               {
-                  string serviceurl = hostContext.Configuration["CoinmarketcapAPI:baseUrl"];
-                  c.BaseAddress = new Uri(serviceurl);
-                  c.DefaultRequestHeaders.Add("Accept", "application/json");
-              }).SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Reuse the handlers within 5 minutes lifetime
-                 .AddPolicyHandler(GetRetryPolicy());
+                  httpclient.BaseAddress = new Uri(serviceConfigurations.CoinmarketcapApi.BaseUrl);
+                  httpclient.DefaultRequestHeaders.Add("Accept", "application/json");
+              })
+                .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Reuse the handlers within 5 minutes lifetime
+                .AddPolicyHandler(GetRetryPolicy());
+
+            services.AddSingleton<IExchangeProviderService, CoinMarketCapService>();
 
         }
+
         static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
         {
             //Attempt 1: 2seconds
             //Attempt 2: 4seconds
             //Attempt 3: 8seconds
 
-            //TODO: trigger the retry mechanism based on the custom exception thrown.
+            //retry when other than success result is returned.
             return HttpPolicyExtensions
                 .HandleTransientHttpError()
-                .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
-                .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2,retryAttempt)));
+                .OrResult(msg => msg.StatusCode != System.Net.HttpStatusCode.OK)
+                .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
         }
     }
 }

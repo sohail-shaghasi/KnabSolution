@@ -11,20 +11,22 @@ namespace Knab.Exchange.Api.Configurators
         private static readonly object _syncLock = new();
         private static Logger _logger;
 
+
+
         /// <summary>
-        /// Extension method for setting up logging configuration for an instance of <see cref="IHostBuilder" />.
+        /// Extension method for setting up logging configuration for an instance of <see cref="IWebHostBuilder" />.
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>
-        public static IHostBuilder ConfigureLogging(this IHostBuilder builder) =>
+        public static IWebHostBuilder ConfigureLogging(this IWebHostBuilder builder) =>
             builder.ConfigureLogging(ConfigureLogging);
 
         /// <summary>
-        /// Sets up logging configuration for the <see cref="HostBuilderContext" />.
+        /// Sets up logging configuration for the <see cref="WebHostBuilderContext" />.
         /// </summary>
         /// <param name="builderContext"></param>
         /// <param name="loggingBuilder"></param>
-        private static void ConfigureLogging(HostBuilderContext builderContext,
+        private static void ConfigureLogging(WebHostBuilderContext builderContext,
             ILoggingBuilder loggingBuilder)
         {
             var serviceConfiguration = builderContext
@@ -34,30 +36,6 @@ namespace Knab.Exchange.Api.Configurators
 
             ConfigureLogging(loggingBuilder, serviceConfiguration);
         }
-
-        /// <summary>
-        /// Extension method for setting up logging configuration for an instance of <see cref="IWebHostBuilder" />.
-        /// </summary>
-        /// <param name="builder"></param>
-        /// <returns></returns>
-        //public static IWebHostBuilder ConfigureLogging(this IWebHostBuilder builder) =>
-        //    builder.ConfigureLogging(ConfigureLogging);
-
-        /// <summary>
-        /// Sets up logging configuration for the <see cref="WebHostBuilderContext" />.
-        /// </summary>
-        /// <param name="builderContext"></param>
-        /// <param name="loggingBuilder"></param>
-        //private static void ConfigureLogging(WebHostBuilderContext builderContext,
-        //    ILoggingBuilder loggingBuilder)
-        //{
-        //    var serviceConfiguration = builderContext
-        //        .Configuration
-        //        .GetSection("ServiceConfigurations")
-        //        .Get<ServiceConfigurations>();
-
-        //    ConfigureLogging(loggingBuilder, serviceConfiguration);
-        //}
 
         /// <summary>
         /// Sets up logging configuration for the <see cref="ILoggingBuilder" />.

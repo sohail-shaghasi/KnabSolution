@@ -23,4 +23,9 @@
 		<ProjectReference Include="..\Knab.Exchange.Exchangerates.ApiClient\Knab.Exchange.Exchangerates.ApiClient.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Properties\" />
+	  <Folder Include="_Logs\" />
+	</ItemGroup>
+
 </Project>
