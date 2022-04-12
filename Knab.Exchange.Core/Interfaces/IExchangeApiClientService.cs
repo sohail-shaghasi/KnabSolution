@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Knab.Exchange.Core.Interfaces
 {
-    public interface IExchangeProviderService
+    public interface IExchangeApiClientService
     {
-        Task<ExchangeRatesList> GetExchangeRatesAsync(string BaseCryptocurrencySymbol);
+        Task<ExchangeRatesList> GetExchangeRatesList(string baseCurrencySymbol, List<string> targetCurrencies);
+        string Name { get;}
     }
 }

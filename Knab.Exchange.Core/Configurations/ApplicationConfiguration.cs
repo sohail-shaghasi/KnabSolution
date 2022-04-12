@@ -8,7 +8,7 @@ namespace O.WP.CMC.UmmAdapterService.Core.Configurations
         public string Environment { get; set; }
         public ServiceInfo ServiceInfo { get; set; }
         public CoinmarketcapApi CoinmarketcapApi { get; set; }
-        public Exchangeratesapi Exchangeratesapi { get; set; }
+        public ExchangeratesApi ExchangeratesApi { get; set; }
         public LoggingSinks LoggingSinks { get; set; }
         public Logging Logging { get; set; }
     }
@@ -31,17 +31,19 @@ namespace O.WP.CMC.UmmAdapterService.Core.Configurations
         public string QuotesEndpoint { get; set; }
         public string APIKeyName { get; set; }
         public string APIKeyValue { get; set; }
+        public string ExchangeName { get; set; }
         public List<string> TargetCurrencies { get; set; }
     }
 
-    public class Exchangeratesapi
+    public class ExchangeratesApi
     {
         public bool Enabled { get; set; }
         public string ServiceBaseUrl { get; set; }
         public string ExchangeRateEndpoint { get; set; }
-        public List<string> DefaultTargetedCurrencies { get; set; }
+        public List<string> TargetedCurrencies { get; set; }
         public string Version { get; set; }
         public string AccessKey { get; set; }
+        public string ExchangeName { get; set; }
     }
 
     public class Console

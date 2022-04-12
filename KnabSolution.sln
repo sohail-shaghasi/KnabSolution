@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Exchangerates
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Core", "Knab.Exchange.Core\Knab.Exchange.Core.csproj", "{44C80867-297A-4632-A43A-08D01314351E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.Exchange.Test", "Knab.Exchange.Tests\Knab.Exchange.Test.csproj", "{D98B6757-B2FF-4A38-95EB-49CFBB1D08F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knab.Exchange.IntegrationTest", "Knab.Exchange.IntegrationTest\Knab.Exchange.IntegrationTest.csproj", "{9ED76AC4-7528-4631-8C3B-0008B0B92BA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{44C80867-297A-4632-A43A-08D01314351E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44C80867-297A-4632-A43A-08D01314351E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44C80867-297A-4632-A43A-08D01314351E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D98B6757-B2FF-4A38-95EB-49CFBB1D08F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D98B6757-B2FF-4A38-95EB-49CFBB1D08F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D98B6757-B2FF-4A38-95EB-49CFBB1D08F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D98B6757-B2FF-4A38-95EB-49CFBB1D08F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ED76AC4-7528-4631-8C3B-0008B0B92BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ED76AC4-7528-4631-8C3B-0008B0B92BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ED76AC4-7528-4631-8C3B-0008B0B92BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ED76AC4-7528-4631-8C3B-0008B0B92BA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

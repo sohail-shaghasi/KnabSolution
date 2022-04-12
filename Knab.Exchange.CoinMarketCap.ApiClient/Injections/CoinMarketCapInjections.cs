@@ -22,7 +22,7 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Injections
                 .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Reuse the handlers within 5 minutes lifetime
                 .AddPolicyHandler(GetRetryPolicy());
 
-            services.AddSingleton<IExchangeProviderService, CoinMarketCapService>();
+            services.AddSingleton<IExchangeApiClientService, CoinMarketCapService>();
 
         }
 

@@ -10,12 +10,13 @@ using System.Web;
 
 namespace Knab.Exchange.CoinMarketCap.ApiClient.Services
 {
-    public class CoinMarketCapService : IExchangeProviderService
+    public class CoinMarketCapService : IExchangeApiClientService
     {
-        protected Dictionary<string, int> supportedCryptoCurrencies;
         protected readonly ServiceConfigurations _appConfigs;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<CoinMarketCapService> _logger;
+
+        public string Name { get { return "CoinMarketCapService"; } }
 
         public CoinMarketCapService(ILogger<CoinMarketCapService> logger, IOptions<ServiceConfigurations> appConfigs, IHttpClientFactory httpClientFactory)
         {
@@ -23,17 +24,17 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Services
             _appConfigs = appConfigs.Value;
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<ExchangeRatesList> GetExchangeRatesList(string BaseCurrencySymbol)//, params string[] TargetedCurrencies)
+        public async Task<ExchangeRatesList> GetExchangeRatesList(string BaseCurrencySymbol, List<string> targetCurrencies)
         {
             BaseCurrencySymbol = BaseCurrencySymbol.ToUpper();
-            var targetedCurrencies = _appConfigs.CoinmarketcapApi.TargetCurrencies.Select(e => e.ToUpper()).ToArray();
+            var currencies = targetCurrencies.Select(e => e.ToUpper()).ToArray();
           
             HttpResponseMessage response = new HttpResponseMessage();
             try
             {
                 var query = HttpUtility.ParseQueryString(String.Empty);
                 query["symbol"] = BaseCurrencySymbol;
-                query["convert"] = string.Join(",", targetedCurrencies);
+                query["convert"] = string.Join(",", currencies);
                 query["aux"] = "is_active"; //customize your request. and limit the response
                 var request = new HttpRequestMessage(HttpMethod.Get, $"/{_appConfigs.CoinmarketcapApi.Version}/{_appConfigs.CoinmarketcapApi.QuotesEndpoint}?{query}");
                 request.Headers.Add(_appConfigs.CoinmarketcapApi.APIKeyName, _appConfigs.CoinmarketcapApi.APIKeyValue);
@@ -53,7 +54,7 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Services
                         return new ExchangeRatesList()
                         {
                             BaseCurrencySymbol = CoinmarketcapResponse.Data[BaseCurrencySymbol][0].Symbol,
-                            CurrenciesRates = CoinmarketcapResponse.Data[BaseCurrencySymbol][0].Quote.Where(e => targetedCurrencies.Contains(e.Key)).ToDictionary(key => key.Key, val => val.Value.Price)
+                            CurrenciesRates = CoinmarketcapResponse.Data[BaseCurrencySymbol][0].Quote.Where(e => currencies.Contains(e.Key)).ToDictionary(key => key.Key, val => val.Value.Price)
                         };
                     }
 

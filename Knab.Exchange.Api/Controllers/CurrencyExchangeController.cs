@@ -6,11 +6,11 @@ namespace Knab.Exchange.Api.Controllers
 {
     [Route("api/CurrencyExchange")]
     [ApiController]
-    public class CurrencyExchange : ControllerBase
+    public class CurrencyExchangeController : ControllerBase
     {
         private readonly IExchangeProviderService _exchangeProvider;
 
-        public CurrencyExchange(IExchangeProviderService exchangeProvider)
+        public CurrencyExchangeController(IExchangeProviderService exchangeProvider)
         {
             _exchangeProvider = exchangeProvider;
         }
@@ -21,7 +21,7 @@ namespace Knab.Exchange.Api.Controllers
         [ProducesResponseType(typeof(string), 500)]
         public async Task<ActionResult> QuotesAsync(string symbol)
         {
-            var results = await _exchangeProvider.GetExchangeRatesList(symbol);
+            var results = await _exchangeProvider.GetExchangeRatesAsync(symbol);
             return Ok(results);
         }
     }

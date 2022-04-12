@@ -15,13 +15,13 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Injections
             // Register CointMarketcap's dependencies
             services.AddHttpClient("ExchangeRatesApi", httpclient =>
             {
-                httpclient.BaseAddress = new Uri(serviceConfigurations.Exchangeratesapi.ServiceBaseUrl);
+                httpclient.BaseAddress = new Uri(serviceConfigurations.ExchangeratesApi.ServiceBaseUrl);
                 httpclient.DefaultRequestHeaders.Add("Accept", "application/json");
             })
                 .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Reuse the handlers within 5 minutes lifetime
                 .AddPolicyHandler(GetRetryPolicy());
 
-            services.AddSingleton<IExchangeProviderService, ExchangeRatesService>();
+            services.AddSingleton<IExchangeApiClientService, ExchangeRatesService>();
         }
 
         static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
