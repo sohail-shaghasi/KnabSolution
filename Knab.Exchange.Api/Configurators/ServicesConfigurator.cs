@@ -35,23 +35,22 @@ namespace Knab.Exchange.Api.Configurators
         {
             // Add services to the container.
 
-
             serviceCollection.AddOptions();
-
             var serviceConfigurations = hostBuilderContext.Configuration.GetSection("ServiceConfigurations");
             var appConfigs = hostBuilderContext.Configuration.GetSection("ServiceConfigurations").Get<ServiceConfigurations>();
-
             serviceCollection.Configure<ServiceConfigurations>(serviceConfigurations);
             serviceCollection.AddControllers();
             serviceCollection.AddEndpointsApiExplorer()
                 .AddSwagger(hostBuilderContext);
 
-            // NOTE: In order to separate dependency injection concerns, each api Client will have its own extension method.
-            // This will help a new 3rd party exchange's api is introduced and ready to consume.
-
-            serviceCollection.AddScoped<IExchangeProviderService, ExchangeProviderService>();
-            CoinMarketCapInjections.InjectDependencies(serviceCollection, hostBuilderContext, appConfigs);
-            ExchangeRatesInjections.InjectDependencies(serviceCollection, hostBuilderContext, appConfigs);
+            serviceCollection.AddSingleton<IExchangeProviderService, ExchangeProviderService>();
+            
+            // NOTE: In order to separate the dependency injection concerns for each solution project,
+            // in our case each Api Client (CoinMarketCap/ExchangeRatesApi).
+            // an extension methods are created to handle its dependecies
+            // This concept will help us when introducing a new 3rd party exchange's api.
+            CoinMarketCapInjections.InjectCointMarketCapApiService(serviceCollection, appConfigs);
+            ExchangeRatesInjections.InjectExchangeRatesApiService(serviceCollection, appConfigs);
         }
     }
 }

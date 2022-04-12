@@ -11,7 +11,7 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Injections
 {
     public static class CoinMarketCapInjections
     {
-        public static void InjectDependencies(this IServiceCollection services, WebHostBuilderContext hostContext, ServiceConfigurations serviceConfigurations)
+        public static void InjectCointMarketCapApiService(this IServiceCollection services, ServiceConfigurations serviceConfigurations)
         {
             // Register CointMarketcap's dependencies
             services.AddHttpClient("CoinmarketcapApi", httpclient =>
