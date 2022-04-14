@@ -1,7 +1,7 @@
 ﻿using Serilog;
 using Serilog.Events;
 
-namespace O.WP.CMC.UmmAdapterService.Core.Configurations
+namespace Knab.Exchange.Core.Configurations
 {
     public class ServiceConfigurations
     {

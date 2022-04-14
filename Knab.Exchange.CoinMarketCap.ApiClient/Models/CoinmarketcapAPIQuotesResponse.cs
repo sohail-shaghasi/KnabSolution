@@ -7,10 +7,7 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Model
         [JsonProperty("status")]
         public CoinmarketcapResponseStatus Status { get; set; }
 
-        //[JsonProperty("data")]
-        //public CoinmarketcapResponseQuotes Data { get; set; }
         [JsonProperty("data")]
-        //public Dictionary<string, CoinmarketcapResponseQuotes> Data { set; get; }
         public Dictionary<string, List<CoinmarketcapResponseQuotes>> Data { set; get; }
     }
    

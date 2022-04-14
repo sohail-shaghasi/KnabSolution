@@ -1,8 +1,7 @@
-﻿using Knab.Exchange.Core.Interfaces;
+﻿using Knab.Exchange.Core.Configurations;
+using Knab.Exchange.Core.Interfaces;
 using Knab.Exchange.Exchangerates.ApiClient.Services;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using O.WP.CMC.UmmAdapterService.Core.Configurations;
 using Polly;
 using Polly.Extensions.Http;
 

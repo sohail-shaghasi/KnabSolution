@@ -1,11 +1,11 @@
 ﻿using Knab.Exchange.CoinMarketCap.ApiClient.CustomException;
 using Knab.Exchange.CoinMarketCap.ApiClient.Model;
+using Knab.Exchange.Core.Configurations;
 using Knab.Exchange.Core.Interfaces;
 using Knab.Exchange.Core.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using O.WP.CMC.UmmAdapterService.Core.Configurations;
 using System.Web;
 
 namespace Knab.Exchange.CoinMarketCap.ApiClient.Services
@@ -41,24 +41,25 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Services
                 var httpclient = _httpClientFactory.CreateClient("CoinmarketcapApi");
                     response = await httpclient.SendAsync(request);
                 var responseString = await response.Content.ReadAsStringAsync();
-                var CoinmarketcapResponse = JsonConvert.DeserializeObject<CoinmarketcapAPIQuotesResponse>(responseString);
+                var coinmarketcapResponse = JsonConvert.DeserializeObject<CoinmarketcapAPIQuotesResponse>(responseString);
                 if (response.IsSuccessStatusCode)
                 {
-                    if (CoinmarketcapResponse?.Status?.ErrorCode == 0
-                        && CoinmarketcapResponse.Status.ErrorMessage == null
-                        && CoinmarketcapResponse.Status.CreditCount > 0
-                        && CoinmarketcapResponse.Data?.Count > 0
-                        && CoinmarketcapResponse.Data.Count > 0
-                        && CoinmarketcapResponse.Data.ContainsKey(BaseCurrencySymbol))
+                    if (coinmarketcapResponse?.Status?.ErrorCode == 0
+                        && coinmarketcapResponse.Status.ErrorMessage == null
+                        && coinmarketcapResponse.Status.CreditCount > 0
+                        && coinmarketcapResponse.Data?.Count > 0
+                        && coinmarketcapResponse.Data.Count > 0
+                        && coinmarketcapResponse.Data.ContainsKey(BaseCurrencySymbol))
                     {
                         return new ExchangeRatesList()
                         {
-                            BaseCurrencySymbol = CoinmarketcapResponse.Data[BaseCurrencySymbol][0].Symbol,
-                            CurrenciesRates = CoinmarketcapResponse.Data[BaseCurrencySymbol][0].Quote.Where(e => currencies.Contains(e.Key)).ToDictionary(key => key.Key, val => val.Value.Price)
+                            BaseCurrencySymbol = coinmarketcapResponse.Data[BaseCurrencySymbol][0].Symbol,
+                            CurrenciesRates = coinmarketcapResponse.Data[BaseCurrencySymbol][0].Quote.Where(e => currencies.Contains(e.Key)).ToDictionary(key => key.Key, val => val.Value.Price)
                         };
                     }
 
                 }
+                return new ExchangeRatesList();
             }
             catch (CoinMarketCapHttpException ex)
             {

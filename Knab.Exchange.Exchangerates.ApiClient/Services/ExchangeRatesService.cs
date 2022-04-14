@@ -1,11 +1,11 @@
-﻿using Knab.Exchange.Core.Interfaces;
+﻿using Knab.Exchange.Core.Configurations;
+using Knab.Exchange.Core.Interfaces;
 using Knab.Exchange.Core.Models;
 using Knab.Exchange.Exchangerates.ApiClient.CustomException;
 using Knab.Exchange.Exchangerates.ApiClient.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using O.WP.CMC.UmmAdapterService.Core.Configurations;
 using System.Web;
 
 namespace Knab.Exchange.Exchangerates.ApiClient.Services

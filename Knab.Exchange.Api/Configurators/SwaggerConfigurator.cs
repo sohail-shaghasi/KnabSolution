@@ -1,4 +1,4 @@
-﻿using O.WP.CMC.UmmAdapterService.Core.Configurations;
+﻿using Knab.Exchange.Core.Configurations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Knab.Exchange.Api.Configurators

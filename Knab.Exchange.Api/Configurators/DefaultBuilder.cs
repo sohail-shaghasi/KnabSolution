@@ -1,5 +1,5 @@
 ﻿using Knab.Exchange.Api.Configurators;
-using O.WP.CMC.UmmAdapterService.Core.Configurations;
+using Knab.Exchange.Core.Configurations;
 
 namespace Knab.Exchange.Api.Builders
 {
@@ -14,7 +14,7 @@ namespace Knab.Exchange.Api.Builders
         /// 
         /// </summary>
         /// <param name="builder"></param>
-        public static async Task ExecuteAsync(this WebApplicationBuilder builder,
+        public static async Task<WebApplication> ExecuteAsync(this WebApplicationBuilder builder,
             CancellationToken cancellationToken = default)
         {
             var webHost = builder.WebHost;
@@ -46,6 +46,7 @@ namespace Knab.Exchange.Api.Builders
             // Run
             await app
                 .RunAsync(cancellationToken);
+            return app;
         }
     }
 }

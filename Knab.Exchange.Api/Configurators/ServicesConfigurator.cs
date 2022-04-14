@@ -1,10 +1,7 @@
 ﻿using Knab.Exchange.CoinMarketCap.ApiClient.Injections;
 using Knab.Exchange.Core;
+using Knab.Exchange.Core.Configurations;
 using Knab.Exchange.Core.Interfaces;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using O.WP.CMC.UmmAdapterService.Core.Configurations;
 
 
 namespace Knab.Exchange.Api.Configurators
@@ -49,8 +46,8 @@ namespace Knab.Exchange.Api.Configurators
             // in our case each Api Client (CoinMarketCap/ExchangeRatesApi).
             // an extension methods are created to handle its dependecies
             // This concept will help us when introducing a new 3rd party exchange's api.
-            CoinMarketCapInjections.InjectCointMarketCapApiService(serviceCollection, appConfigs);
-            ExchangeRatesInjections.InjectExchangeRatesApiService(serviceCollection, appConfigs);
+            serviceCollection.InjectCointMarketCapApiService(appConfigs);
+            serviceCollection.InjectExchangeRatesApiService(appConfigs);
         }
     }
 }

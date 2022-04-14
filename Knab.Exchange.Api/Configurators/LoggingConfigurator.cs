@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using O.WP.CMC.UmmAdapterService.Core.Configurations;
+﻿using Knab.Exchange.Core.Configurations;
 using Serilog;
 using Serilog.Core;
 using Serilog.Sinks.SystemConsole.Themes;

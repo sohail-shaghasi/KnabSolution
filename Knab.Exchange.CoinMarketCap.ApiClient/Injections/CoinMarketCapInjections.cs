@@ -1,9 +1,7 @@
 ﻿using Knab.Exchange.CoinMarketCap.ApiClient.Services;
+using Knab.Exchange.Core.Configurations;
 using Knab.Exchange.Core.Interfaces;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using O.WP.CMC.UmmAdapterService.Core.Configurations;
 using Polly;
 using Polly.Extensions.Http;
 
