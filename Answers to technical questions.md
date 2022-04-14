@@ -77,15 +77,36 @@ My experience on the performance issue in the production:
 After limiting the number of records returned from the DB, it has significantly reduced the load time of the page.
 
 
-##### What was the latest technical book you have read or tech conference you have been to? What did you learn?
+##### Question 4 What was the latest technical book you have read or tech conference you have been to? What did you learn?
 
 I have not specifically read any book recently, but I do read Microsoft documentation regularly to keep up with the enhancements that are happening in the .NET stack. 
 I recently read Microsoft documentation on upgrading ASP .Net 4.7 to DotNet 6. It is a big change specially if the service is big with all the dependencies.
 
 
-##### What do you think about this technical assessment?
+##### Question 5 What do you think about this technical assessment?
 
 It’s a wonderful approach to filter out the best candidates.
 
 
+##### Question 6. Please, describe yourself using JSON.
 
+Answer 6:  
+
+
+{
+"firstname": "Sohail",
+"lastname": "Shaghasi",
+"age": 30,
+"nationality": "Afghanistan",
+"livesin": "Malaysia",
+"passions": [
+"Software development",
+"Teaching others"
+],
+"interests": [
+"Swimming",
+"Weight lifting"
+],
+"funfact": 
+"able to speak 4 different languages."
+}
