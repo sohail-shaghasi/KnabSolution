@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Exchangerates
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Core", "Knab.Exchange.Core\Knab.Exchange.Core.csproj", "{44C80867-297A-4632-A43A-08D01314351E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Exchangerates.ApiClient.UnitTest", "Knab.Exchange.UnitTest\Knab.Exchange.Exchangerates.ApiClient.UnitTest.csproj", "{D98B6757-B2FF-4A38-95EB-49CFBB1D08F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Exchangerates.ApiClient.UnitTest", "Knab.Exchange.Exchangerates.ApiClient.UnitTest\Knab.Exchange.Exchangerates.ApiClient.UnitTest.csproj", "{D98B6757-B2FF-4A38-95EB-49CFBB1D08F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Exchangerates.ApiClient.IntegrationTest", "Knab.Exchange.IntegrationTest\Knab.Exchange.Exchangerates.ApiClient.IntegrationTest.csproj", "{9ED76AC4-7528-4631-8C3B-0008B0B92BA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knab.Exchange.Exchangerates.ApiClient.IntegrationTest", "Knab.Exchange.Exchangerates.ApiClient.IntegrationTest\Knab.Exchange.Exchangerates.ApiClient.IntegrationTest.csproj", "{9ED76AC4-7528-4631-8C3B-0008B0B92BA9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B6EFB900-EDB8-4507-8401-52EB8287677A}"
 EndProject

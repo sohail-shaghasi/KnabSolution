@@ -1,11 +1,5 @@
-﻿using Knab.Exchange.CoinMarketCap.ApiClient.Services;
-using Knab.Exchange.Core.Configurations;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Knab.Exchange.CoinMarketCap.ApiClient.IntegrationTest
