@@ -1,9 +1,4 @@
-﻿using Knab.Exchange.CoinMarketCap.ApiClient.CustomException;
-using Knab.Exchange.Core.Interfaces;
-using Knab.Exchange.Core.Models;
-using Knab.Exchange.Exchangerates.ApiClient.CustomException;
-using Microsoft.AspNetCore.Mvc;
-
+﻿
 namespace Knab.Exchange.Api.Controllers
 {
     [ApiController]

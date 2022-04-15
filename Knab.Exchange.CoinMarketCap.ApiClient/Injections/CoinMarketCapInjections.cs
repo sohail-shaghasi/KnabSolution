@@ -1,10 +1,4 @@
-﻿using Knab.Exchange.CoinMarketCap.ApiClient.Services;
-using Knab.Exchange.Core.Configurations;
-using Knab.Exchange.Core.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
-using Polly;
-using Polly.Extensions.Http;
-
+﻿
 namespace Knab.Exchange.CoinMarketCap.ApiClient.Injections
 {
     public static class CoinMarketCapInjections

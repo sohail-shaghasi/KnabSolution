@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Knab.Exchange.Core.Models
 {
     public class ExchangeRatesList

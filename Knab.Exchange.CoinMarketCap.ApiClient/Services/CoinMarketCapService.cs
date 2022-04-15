@@ -1,14 +1,4 @@
-﻿using Knab.Exchange.CoinMarketCap.ApiClient.CustomException;
-using Knab.Exchange.CoinMarketCap.ApiClient.Model;
-using Knab.Exchange.Core.Configurations;
-using Knab.Exchange.Core.Interfaces;
-using Knab.Exchange.Core.Models;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
-using System.Web;
-
-namespace Knab.Exchange.CoinMarketCap.ApiClient.Services
+﻿namespace Knab.Exchange.CoinMarketCap.ApiClient.Services
 {
     public class CoinMarketCapService : IExchangeApiClientService
     {

@@ -1,5 +1,4 @@
-﻿using System.Net;
-
+﻿
 namespace Knab.Exchange.CoinMarketCap.ApiClient.CustomException
 {
     [Serializable()]

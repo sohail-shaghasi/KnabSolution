@@ -1,7 +1,4 @@
-﻿using Serilog;
-using Serilog.Events;
-
-namespace Knab.Exchange.Core.Configurations
+﻿namespace Knab.Exchange.Core.Configurations
 {
     public class ServiceConfigurations
     {

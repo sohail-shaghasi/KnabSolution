@@ -1,9 +1,4 @@
-﻿using Knab.Exchange.CoinMarketCap.ApiClient.Injections;
-using Knab.Exchange.Core;
-using Knab.Exchange.Core.Configurations;
-using Knab.Exchange.Core.Interfaces;
-
-
+﻿
 namespace Knab.Exchange.Api.Configurators
 {
     /// <summary>

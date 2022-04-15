@@ -1,12 +1,4 @@
-﻿using Knab.Exchange.Api.Controllers;
-using Knab.Exchange.Core.Interfaces;
-using Knab.Exchange.Core.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
+﻿
 namespace Knab.Exchange.Api.UnitTest
 {
     [TestClass]

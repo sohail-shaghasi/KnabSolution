@@ -1,0 +1,14 @@
+﻿global using Knab.Exchange.Api.Builders;
+global using Knab.Exchange.CoinMarketCap.ApiClient.CustomException;
+global using Knab.Exchange.Core.Interfaces;
+global using Knab.Exchange.Core.Models;
+global using Knab.Exchange.Exchangerates.ApiClient.CustomException;
+global using Microsoft.AspNetCore.Mvc;
+global using Knab.Exchange.Api.Configurators;
+global using Knab.Exchange.Core.Configurations;
+global using Serilog;
+global using Serilog.Core;
+global using Serilog.Sinks.SystemConsole.Themes;
+global using Knab.Exchange.CoinMarketCap.ApiClient.Injections;
+global using Knab.Exchange.Core;
+global using Swashbuckle.AspNetCore.SwaggerGen;

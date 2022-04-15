@@ -1,17 +1,4 @@
-﻿using Knab.Exchange.CoinMarketCap.ApiClient.Services;
-using Knab.Exchange.Core.Configurations;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using Moq.Protected;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-
+﻿
 namespace Knab.Exchange.CoinMarketCap.ApiClient.UnitTest
 {
     /// <summary>

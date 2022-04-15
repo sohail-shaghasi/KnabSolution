@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-
+﻿
 namespace Knab.Exchange.CoinMarketCap.ApiClient.Model
 {
     public class CoinmarketcapAPIQuotesResponse

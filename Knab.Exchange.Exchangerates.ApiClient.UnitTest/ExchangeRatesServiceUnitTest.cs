@@ -1,12 +1,4 @@
-﻿using Knab.Exchange.Core.Configurations;
-using Knab.Exchange.Exchangerates.ApiClient.Services;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using Moq.Protected;
-using System.Net;
-
+﻿
 namespace Knab.Exchange.UnitTest.ExchangeRatesUnitTest
 {
     /// <summary>

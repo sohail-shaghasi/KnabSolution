@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
-
-namespace Knab.Exchange.CoinMarketCap.ApiClient.IntegrationTest
+﻿namespace Knab.Exchange.CoinMarketCap.ApiClient.IntegrationTest
 {
     /// <summary>
     /// Naming Convention

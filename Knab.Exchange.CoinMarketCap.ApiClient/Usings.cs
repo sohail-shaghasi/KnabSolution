@@ -1,0 +1,14 @@
+﻿global using Knab.Exchange.CoinMarketCap.ApiClient.CustomException;
+global using Knab.Exchange.CoinMarketCap.ApiClient.Model;
+global using Knab.Exchange.Core.Configurations;
+global using Knab.Exchange.Core.Interfaces;
+global using Knab.Exchange.Core.Models;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Extensions.Options;
+global using Newtonsoft.Json;
+global using System.Web;
+global using Knab.Exchange.CoinMarketCap.ApiClient.Services;
+global using Microsoft.Extensions.DependencyInjection;
+global using Polly;
+global using Polly.Extensions.Http;
+global using System.Net;

@@ -1,8 +1,4 @@
-﻿using Knab.Exchange.Core.Configurations;
-using Knab.Exchange.Core.Interfaces;
-using Knab.Exchange.Core.Models;
-using Microsoft.Extensions.Options;
-
+﻿
 namespace Knab.Exchange.Core
 {
     public class ExchangeProviderService : IExchangeProviderService

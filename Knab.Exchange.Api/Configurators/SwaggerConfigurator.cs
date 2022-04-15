@@ -1,6 +1,4 @@
-﻿using Knab.Exchange.Core.Configurations;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
+﻿
 namespace Knab.Exchange.Api.Configurators
 {
     internal static class SwaggerConfigurator

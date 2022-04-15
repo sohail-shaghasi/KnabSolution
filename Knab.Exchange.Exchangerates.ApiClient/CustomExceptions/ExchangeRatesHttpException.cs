@@ -1,4 +1,4 @@
-﻿using System.Net;
+﻿
 
 namespace Knab.Exchange.Exchangerates.ApiClient.CustomException
 {
