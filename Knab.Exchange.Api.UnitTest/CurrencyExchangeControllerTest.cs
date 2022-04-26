@@ -16,7 +16,7 @@ namespace Knab.Exchange.Api.UnitTest
         [TestMethod]
         public void CurrencyExchangeController_InvokeConstructor_ShouldReturnInstance()
         {
-            CurrencyExchangeController testObject = new CurrencyExchangeController(null);
+            CurrencyExchangeController testObject = new (null);
             Assert.IsNotNull(testObject);
         }
 
@@ -25,7 +25,7 @@ namespace Knab.Exchange.Api.UnitTest
         public async Task GetCurrencyQuotesAsync_currencyQoutes_ShouldReturnOkResult(string baseCurrency, string targetCurrency)
         {
             // Arrange
-            var expectedCurrenciesRates = new Dictionary<string, decimal>() {{ targetCurrency, btcValue } };
+            Dictionary<string, decimal> expectedCurrenciesRates = new() {{ targetCurrency, btcValue } };
             var stub = new Mock<IExchangeProviderService>(); 
             
             stub.Setup(x => x.GetExchangeRatesAsync(It.IsAny<string>())).Returns(Task.FromResult(
@@ -33,8 +33,10 @@ namespace Knab.Exchange.Api.UnitTest
                         {  BaseCurrencySymbol = baseCurrency,
                            CurrenciesRates = expectedCurrenciesRates
                         }));
+
+
             
-            CurrencyExchangeController currencyExchangeControllerObject = new CurrencyExchangeController(stub.Object);
+            CurrencyExchangeController currencyExchangeControllerObject = new (stub.Object);
 
             //Act
             var actualCurrenciesRates = await currencyExchangeControllerObject.GetCurrencyQuotesAsync(baseCurrency);

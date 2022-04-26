@@ -2,7 +2,7 @@
 namespace Knab.Exchange.Api.Controllers
 {
     [ApiController]
-    [Route("api/CurrencyExchange")]
+    [Route("api/[controller]")]
     public class CurrencyExchangeController : ControllerBase
     {
         private readonly IExchangeProviderService _exchangeProvider;

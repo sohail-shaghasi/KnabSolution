@@ -12,7 +12,8 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Injections
                   httpclient.DefaultRequestHeaders.Add("Accept", "application/json");
               })
                 .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Reuse the handlers within 5 minutes lifetime
-                .AddPolicyHandler(GetRetryPolicy());
+                .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy());
 
             services.AddSingleton<IExchangeApiClientService, CoinMarketCapService>();
 
@@ -30,5 +31,14 @@ namespace Knab.Exchange.CoinMarketCap.ApiClient.Injections
                 .OrResult(msg => msg.StatusCode != System.Net.HttpStatusCode.OK)
                 .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
         }
+
+        static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
+        {
+            // Break the request circuit after 5 retries for 30 seconds 
+            return HttpPolicyExtensions
+            .HandleTransientHttpError()
+            .CircuitBreakerAsync(5, TimeSpan.FromSeconds(30));
+        }
+
     }
 }

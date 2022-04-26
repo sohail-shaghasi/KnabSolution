@@ -26,9 +26,9 @@ namespace Knab.Exchange.Core
         private async Task<ExchangeRatesList> GetCollectiveRatesAsync(string BaseCryptocurrencySymbol)
         {
             var fiatBasedCurrency = _serviceConfigurations.CoinmarketcapApi.TargetCurrencies.FirstOrDefault();
-            var cointMarketCapApiClient = GetApiCleint(_serviceConfigurations.CoinmarketcapApi.ExchangeName);// _exchangeApiClientService.FirstOrDefault(e => e.Name == _serviceConfigurations.CoinmarketcapApi.ExchangeName);
+            var cointMarketCapApiClient = GetApiClientServiceByName(_serviceConfigurations.CoinmarketcapApi.ExchangeName);// _exchangeApiClientService.FirstOrDefault(e => e.Name == _serviceConfigurations.CoinmarketcapApi.ExchangeName);
             var firstListOfRates = cointMarketCapApiClient.GetExchangeRatesList(BaseCryptocurrencySymbol, _serviceConfigurations.CoinmarketcapApi.TargetCurrencies);
-            var ExchangeRatesApiClient = GetApiCleint(_serviceConfigurations.ExchangeratesApi.ExchangeName);
+            var ExchangeRatesApiClient = GetApiClientServiceByName(_serviceConfigurations.ExchangeratesApi.ExchangeName);
             var secondListOfRates = ExchangeRatesApiClient.GetExchangeRatesList(fiatBasedCurrency, _serviceConfigurations.ExchangeratesApi.TargetedCurrencies);
 
             var results = await Task.WhenAll(firstListOfRates, secondListOfRates);
@@ -43,7 +43,7 @@ namespace Knab.Exchange.Core
             };
         }
 
-        public IExchangeApiClientService GetApiCleint(string apiServiceName)
+        public IExchangeApiClientService GetApiClientServiceByName(string apiServiceName)
         {
             return _exchangeApiClientService.FirstOrDefault(e => e.Name == apiServiceName);
         }
